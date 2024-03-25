@@ -1,0 +1,213 @@
+*{
+    padding:0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+@font-face {
+    font-family: 'HyundaiSansHeadOffice-Bold';
+    src: url('../fonts/Hyundai sans/HyundaiSansHeadOffice-Bold.ttf') format('truetype');
+   
+ 
+  }
+  @font-face {
+    font-family: 'HyundaiSansHeadOffice-Bold';
+    src: url('../fonts/Hyundai sans/HyundaiSansHeadOffice-Light.ttf') format('truetype');
+  }
+  @font-face {
+    font-family: 'HyundaiSansHeadOffice-Bold';
+    src: url('../fonts/Hyundai sans/HyundaiSansHeadOffice-Medium.ttf') format('truetype');
+  }
+  @font-face {
+    font-family: 'HyundaiSansHeadOffice-Bold';
+    src: url('../fonts/Hyundai sans/HyundaiSansHeadOffice-Regular.ttf') format('truetype');
+  }
+
+
+
+  
+body{
+    background-color: #F5F6FA;
+ /* font-family: 'HyundaiSansHeadOffice-Regular'; */
+}
+
+
+.hyundai-dashboard-navbar-section{
+
+    width:100%;
+    background-color: #FFFFFF !important;
+    /* height:50px; */
+}
+.hyundai-navbar-flexbox-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+   padding: 15px;
+}
+.hyundai-image-section{
+    width:100px;
+    height:25px;
+
+   }
+ .admin-logout-section-container{
+    display: flex;
+    flex-direction: row;
+    gap:20px;
+  
+ } 
+ .admin-text-div{
+    font-family:'Hyundai Sans Head Office';
+    font-weight: 700;
+    color:#333333;
+    
+    /* padding-top: 10px; */
+ }
+ 
+ .logout-btn{
+    border:none;
+    outline:none;
+    border:1px solid #685290;
+    border-radius: 8px;
+    width:80px;
+    height:25px;
+    align-items: center;
+    text-align: center;
+    background-color: #FFFFFF;
+    color:#685290;
+    cursor: pointer;
+    /* padding: 10px; */
+ }
+
+ .hyundai-content-section{
+     padding-left: 15px;
+     padding-right: 15px;
+     display: flex;
+     flex-direction: row;
+     gap:20px;
+     margin-top: 20px;
+}
+
+.tabs-flexbox-container{
+    display:flex;
+    flex-direction: row;
+    gap:15px;
+}
+
+.tabs-flexbox-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: 1px solid #CDCDCD;
+    padding-bottom: 0px;
+    padding-left: 15px;
+    padding-right: 15px;
+    
+   
+}
+.tabs-flexbox-container-two{
+    display:flex;
+    flex-direction: row;
+    gap:20px;
+  
+}
+.overview-section{
+    padding-left: 15px;
+}
+.download-report-div{
+  color:  #333333;
+  font-weight: 400;
+  
+}
+
+.datawisereport-section{
+    padding-left: 15px;
+
+}
+
+.data-section{
+
+    margin-top: 15px;
+}
+
+.tabone-section{
+    margin-top: 15px;
+}
+   
+.datawisereport-table-section{
+    margin-top: 15px;
+}
+
+
+.search-section{
+    background-color: white;
+    padding: 10px;
+    margin-top: 15px;
+
+}
+.custom-pagination .MuiTablePagination-actions {
+    display: none;
+}
+
+.zone-div{
+    color:#808080;
+    font-weight: 400;
+    font-size: 14px;
+}
+.table-columns-div{
+    color: #191919 !important;
+    font-weight: 700 !important;
+ 
+  background-color:#f2f2f2 !important;
+
+
+}
+.table-data-div{
+    color: #191919 !important;
+    font-weight: 400 !important;
+
+}
+.total-div{
+    color: #191919 !important;
+    font-weight: 400 !important;
+   
+}
+.download-section{
+    display: flex;
+    flex-direction: row;
+    gap:5px;
+}
+.download-image{
+    width:10px;
+    height:10px;
+
+}
+.searchbar{
+    border:1px solid  #827D7D;
+
+    color:  grey;
+   padding: 10px;
+   padding-left: 30px;
+}
+.custom-search-icon{
+    position: absolute;
+    padding-top: 10px;
+    padding-left: 5px;
+}
+.download-section{
+    cursor: pointer;
+}
+.active-tab{
+    cursor: pointer;
+    border-bottom: 2px solid  #685290; 
+    padding-bottom: 10px;
+    color:#685290;
+  
+
+}
+.inactive-tab{
+    cursor: pointer;
+}
+
+
+
