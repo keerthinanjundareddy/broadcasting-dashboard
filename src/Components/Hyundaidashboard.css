@@ -4,32 +4,37 @@
     box-sizing: border-box;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Sora&display=swap');
+
 
 @font-face {
-    font-family: 'HyundaiSansHeadOffice-Bold';
+    font-family: 'Hyundai Sans Head Office bold';
+  
     src: url('../fonts/Hyundai sans/HyundaiSansHeadOffice-Bold.ttf') format('truetype');
    
- 
-  }
-  @font-face {
-    font-family: 'HyundaiSansHeadOffice-Bold';
-    src: url('../fonts/Hyundai sans/HyundaiSansHeadOffice-Light.ttf') format('truetype');
-  }
-  @font-face {
-    font-family: 'HyundaiSansHeadOffice-Bold';
-    src: url('../fonts/Hyundai sans/HyundaiSansHeadOffice-Medium.ttf') format('truetype');
-  }
-  @font-face {
-    font-family: 'HyundaiSansHeadOffice-Bold';
+}
+
+
+
+@font-face {
+    font-family: 'Hyundai Sans Head Office regular';
+  
     src: url('../fonts/Hyundai sans/HyundaiSansHeadOffice-Regular.ttf') format('truetype');
-  }
+   
+}
+
+
+
+
+
 
 
 
   
 body{
     background-color: #F5F6FA;
- /* font-family: 'HyundaiSansHeadOffice-Regular'; */
+    
+ 
 }
 
 
@@ -37,17 +42,24 @@ body{
 
     width:100%;
     background-color: #FFFFFF !important;
-    /* height:50px; */
+    height:60px;
+    align-items: center;
+    align-content: center;
 }
 .hyundai-navbar-flexbox-container{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-   padding: 15px;
+   padding-left: 30px;
+   padding-right: 30px;
+   /* justify-content: center; */
+   align-items: center;
+   align-content: center;
+
 }
 .hyundai-image-section{
-    width:100px;
-    height:25px;
+    width:150px;
+    height:150px;
 
    }
  .admin-logout-section-container{
@@ -57,11 +69,12 @@ body{
   
  } 
  .admin-text-div{
-    font-family:'Hyundai Sans Head Office';
+
     font-weight: 700;
     color:#333333;
+    font-family: 'Hyundai Sans Head Office bold';
     
-    /* padding-top: 10px; */
+    padding-top: 5px;
  }
  
  .logout-btn{
@@ -70,18 +83,20 @@ body{
     border:1px solid #685290;
     border-radius: 8px;
     width:80px;
-    height:25px;
+    height:30px;
     align-items: center;
     text-align: center;
     background-color: #FFFFFF;
     color:#685290;
     cursor: pointer;
-    /* padding: 10px; */
+    font-weight: 400;
+    font-family: 'Hyundai Sans Head Office regular';
+  
  }
 
  .hyundai-content-section{
-     padding-left: 15px;
-     padding-right: 15px;
+     padding-left: 30px;
+     padding-right: 30px;
      display: flex;
      flex-direction: row;
      gap:20px;
@@ -99,9 +114,11 @@ body{
     flex-direction: row;
     justify-content: space-between;
     border-bottom: 1px solid #CDCDCD;
+    margin-left: 30px;
+    margin-right: 30px;
     padding-bottom: 0px;
-    padding-left: 15px;
-    padding-right: 15px;
+    /* padding-left: 30px; */
+    padding-right: 30px;
     
    
 }
@@ -112,22 +129,24 @@ body{
   
 }
 .overview-section{
-    padding-left: 15px;
+    padding-left: 30px;
 }
 .download-report-div{
   color:  #333333;
   font-weight: 400;
+  font-size: 16px !important;
+  font-family: 'Hyundai Sans Head Office regular';
   
 }
 
 .datawisereport-section{
-    padding-left: 15px;
+    padding-left: 30px;
 
 }
 
 .data-section{
 
-    margin-top: 15px;
+    /* margin-top: 15px; */
 }
 
 .tabone-section{
@@ -135,13 +154,13 @@ body{
 }
    
 .datawisereport-table-section{
-    margin-top: 15px;
+    margin-top: 0px;
 }
 
 
 .search-section{
     background-color: white;
-    padding: 10px;
+    padding: 15px;
     margin-top: 15px;
 
 }
@@ -157,25 +176,34 @@ body{
 .table-columns-div{
     color: #191919 !important;
     font-weight: 700 !important;
- 
-  background-color:#f2f2f2 !important;
-
-
+    font-family: 'Hyundai Sans Head Office bold' !important;
+    font-size: 14px !important;
+    background-color:#f2f2f2 !important;
 }
-.table-data-div{
+
+.table-datas-div{
     color: #191919 !important;
     font-weight: 400 !important;
+    font-size: 15px !important;
+    font-family: 'Hyundai Sans Head Office regular' !important;
 
 }
 .total-div{
     color: #191919 !important;
-    font-weight: 400 !important;
+    font-weight: 500 !important;
+    font-size: 25px;
+    font-family: 'Hyundai Sans Head Office bold' !important;
    
 }
 .download-section{
     display: flex;
     flex-direction: row;
     gap:5px;
+    font-family: 'Hyundai Sans Head Office regular' !important;
+    color: #333333 !important;
+
+    font-weight: 400 !important;
+    font-size: 16px;
 }
 .download-image{
     width:10px;
@@ -183,16 +211,38 @@ body{
 
 }
 .searchbar{
-    border:1px solid  #827D7D;
+  
 
-    color:  grey;
+    color:   #827D7D;
+  
    padding: 10px;
-   padding-left: 30px;
+   padding-left: 35px;
+   border:none;
+   outline:none;
+   border:1px solid #68718229;
+   /* box-shadow: 1px 1px 1px 1px #68718229; */
+   box-shadow: 1px 1px 1px 1px #68718229;
+   width:30%;
+   font-size:16px ;
+   font-family: 'Hyundai Sans Head Office regular' !important;
+
+
+
+
+
+ 
+
+   
+}
+.searchbar::placeholder{
+    color: #827D7D;
+  
+   
 }
 .custom-search-icon{
     position: absolute;
-    padding-top: 10px;
-    padding-left: 5px;
+    padding-top: 12px;
+    padding-left: 10px;
 }
 .download-section{
     cursor: pointer;
@@ -200,14 +250,55 @@ body{
 .active-tab{
     cursor: pointer;
     border-bottom: 2px solid  #685290; 
+
     padding-bottom: 10px;
     color:#685290;
+    font-size: 16px;
+    font-family: 'Hyundai Sans Head Office bold';
+    font-weight: 400;
   
 
 }
 .inactive-tab{
     cursor: pointer;
+    color: #808080;
+    font-weight: 400;
+    font-size: 16px;
+    font-family: 'Hyundai Sans Head Office regular';
+  
+
+}
+
+.download-section{
+    text-decoration: none;
 }
 
 
+.css-m3l1ig-MuiNativeSelect-select-MuiInputBase-input.css-m3l1ig-MuiNativeSelect-select-MuiInputBase-input.css-m3l1ig-MuiNativeSelect-select-MuiInputBase-input {
+    padding-right: 0px !important;
+}
+.css-16c50h-MuiInputBase-root-MuiTablePagination-select .MuiTablePagination-select {
+    padding-left: 0px !important;
+}
+
+
+.download-img{
+    width:12px;
+    height:12px;
+}
+
+
+.css-pdct74-MuiTablePagination-selectLabel {
+    font-family: "Inter", sans-serif;
+    font-weight: 500 !important;
+    color: #343232 !important;
+    font-size: 16px !important;
+  
+    
+}
+.button:disabled {
+    background-color: #F5F5F5 !important;
+    color: #868FA0 !important;
+    border-color:  #F5F5F5 !important;
+}
 

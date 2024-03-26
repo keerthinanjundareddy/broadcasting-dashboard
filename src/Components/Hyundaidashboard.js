@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow,TablePagination} from "@mui/material";
 import { DatePicker } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
@@ -13,6 +13,8 @@ import Select from "@mui/material/Select";
 import Checkbox from "@mui/material/Checkbox";
 import ListItemText from "@mui/material/ListItemText";
 import { CSVLink } from 'react-csv';
+import previcon from '../Assets/icon (2).png'
+import nexticon from '../Assets/icon (1).png'
 
 
 
@@ -23,11 +25,26 @@ function Hyundaidashboard() {
   const [selectAllChecked, setSelectAllChecked] = useState(false);
   const [activeTab, setActiveTab] = useState('tab1'); // Initially setting tab1 as active
   const [dateRange, setDateRange] = useState([]);
+  const [prevButtonClicked, setPrevButtonClicked] = useState(false);
+  const [nextButtonClicked, setNextButtonClicked] = useState(false);
 
 
 //   date
+useEffect(() => {
+    // This effect runs only once when the component mounts
+    setPrevButtonClicked(true); // Set prevButtonClicked to true when the component mounts
+  }, []);
 
-
+const handlePrevButtonClick = () => {
+    setPrevButtonClicked(true);
+    setNextButtonClicked(false);
+    handleChangePage(null, page - 1);
+  };
+  const handleNextButtonClick = () => {
+    setNextButtonClicked(true);
+    setPrevButtonClicked(false);
+    handleChangePage(null, page + 1);
+  };
 
   
     const handleDateChange = (dates) => {
@@ -47,21 +64,21 @@ function Hyundaidashboard() {
 ];
 
 const dummyData = [
-    { id: 1, name: 'fvgbh', email: 22, phone: 567, names: 456789, emails: 456909, phones: 4567804777,count:456 },
-    { id: 2, name:'fvgbh', email:  22, phone:  567, names: 456789, emails: 456909, phones: 4567804777,count:456 },
-    { id: 3, name:'fvgbh', email:  22, phone:  567, names: 456789, emails: 456909, phones: 4567804777,count:456  },
-    { id: 4, name: 'rht', email:  22, phone:  567, names: 456789, emails: 456909, phones: 4567804777 ,count:456 },
-    { id: 5, name: 'ssdfgh', email:  22, phone:  567, names: 456789, emails: 456909, phones: 4567804777,count:456  },
-    { id: 6, name: 'asdfg', email:  22, phone:  567, names: 456789, emails: 456909, phones: 4567804777,count:456  },
-    { id: 7, name: 'fvgbh', email: 22, phone: 567, names: 456789, emails: 456909, phones: 4567804777,count:456 },
-    { id: 8, name:'fvgbh', email:  22, phone:  567, names: 456789, emails: 456909, phones: 4567804777,count:456 },
-    { id: 9, name:'fvgbh', email:  22, phone:  567, names: 456789, emails: 456909, phones: 4567804777,count:456  },
-    { id: 10, name: 'rht', email:  22, phone:  567, names: 456789, emails: 456909, phones: 4567804777 ,count:456 },
-    { id: 11, name: 'ssdfgh', email:  22, phone:  567, names: 456789, emails: 456909, phones: 4567804777 ,count:456 },
-    { id: 12, name: 'asdfg', email:  22, phone:  567, names: 456789, emails: 456909, phones: 4567804777 ,count:456 },
-    { id: 13, name: 'fvgbh', email: 22, phone: 567, names: 456789, emails: 456909, phones: 4567804777 ,count:456},
-    { id: 14, name:'fvgbh', email:  22, phone:  567, names: 456789, emails: 456909, phones: 4567804777,count:456  },
-    { id: 15, name:'fvgbh', email:  22, phone:  567, names: 456789, emails: 456909, phones: 4567804777 ,count:456 },
+    { id: 1, name: 'CRO1', email: 22, phone: 567, names: 456789, emails: 456909, phones: 4567804777,count:456 },
+    { id: 2, name:'CRO2', email:  22, phone:  567, names: 456789, emails: 456909, phones: 4567804777,count:456 },
+    { id: 3, name:'CRO3', email:  22, phone:  567, names: 456789, emails: 456909, phones: 4567804777,count:456  },
+    { id: 4, name: 'CRO4', email:  22, phone:  567, names: 456789, emails: 456909, phones: 4567804777 ,count:456 },
+    { id: 5, name: 'CRO5', email:  22, phone:  567, names: 456789, emails: 456909, phones: 4567804777,count:456  },
+    { id: 6, name: 'CRO6', email:  22, phone:  567, names: 456789, emails: 456909, phones: 4567804777,count:456  },
+    { id: 7, name: 'CRO7', email: 22, phone: 567, names: 456789, emails: 456909, phones: 4567804777,count:456 },
+    { id: 8, name:'CRO8', email:  22, phone:  567, names: 456789, emails: 456909, phones: 4567804777,count:456 },
+    { id: 9, name:'CRO9', email:  22, phone:  567, names: 456789, emails: 456909, phones: 4567804777,count:456  },
+    { id: 10, name: 'CR1O', email:  22, phone:  567, names: 456789, emails: 456909, phones: 4567804777 ,count:456 },
+    { id: 11, name: 'CR11', email:  22, phone:  567, names: 456789, emails: 456909, phones: 4567804777 ,count:456 },
+    { id: 12, name: 'CR12', email:  22, phone:  567, names: 456789, emails: 456909, phones: 4567804777 ,count:456 },
+    { id: 13, name: 'CR13', email: 22, phone: 567, names: 456789, emails: 456909, phones: 4567804777 ,count:456},
+    { id: 14, name:'CR14', email:  22, phone:  567, names: 456789, emails: 456909, phones: 4567804777,count:456  },
+    { id: 15, name:'CR15', email:  22, phone:  567, names: 456789, emails: 456909, phones: 4567804777 ,count:456 },
   
     // Add more dummy data as needed
 ];
@@ -157,7 +174,7 @@ const [Date, setDate] = useState(["2023-12-11","2024-01-14"]);
     // Set category based on selected region
     const category = zoneCategoryMapping[selectedRegion];
     setInternalCategory(category);
-  };
+};
 
   const getCategories = () => {
     switch (internalRegion) {
@@ -181,7 +198,7 @@ console.log("internalSelectedType",internalSelectedType)
 console.log("internalCategory",internalCategory)
 console.log("internalRegion",internalRegion)
 
-
+// for downloading report
 const headersOverview = columns.map(column => column.name);
 console.log("heaersoverview",headersOverview ) // Only extract column names
    
@@ -221,7 +238,7 @@ const getCSVData = () => {
 
                     </div>
                     <div className='admin-logout-section-container'>
-                        <div className='admin-text-div'><b>Admin</b></div>
+                        <div className='admin-text-div'>Admin</div>
                         <div className='logout-button-div'><button className='logout-btn'>Logout</button></div>
                      </div>
                      </div>
@@ -233,7 +250,7 @@ const getCSVData = () => {
                     {/* zone section  */}
                     
                   <div>
-                    <div className='zone-div'>
+                    <div className='zone-div' style={{marginBottom:"10px"}}>
                         Zone
                     </div>
 
@@ -249,6 +266,8 @@ const getCSVData = () => {
                 fontWeight: 400,
                 lineHeight: "normal",
                 backgroundColor: "white",
+                height:"40px",
+               
               }}
               value={internalRegion}
               onChange={handleRegionChange}
@@ -264,7 +283,11 @@ const getCSVData = () => {
                 <MenuItem
                   key={regionOption}
                   value={regionOption}
-                 
+                  style={{ backgroundColor: "transparent" }}
+                  onClick={(e) => {
+                      const clickedRegion = e.target.innerText;
+                      handleRegionChange({ target: { value: clickedRegion } });
+                  }}
                 >
                        <Checkbox
                     style={{ color: "rgba(104, 82, 144, 1)" }}
@@ -288,7 +311,7 @@ const getCSVData = () => {
 {/* region section */}
 
                   <div>
-                    <div className='zone-div'>
+                    <div className='zone-div' style={{marginBottom:"10px"}}>
                        Region
                     </div>
                    <div>
@@ -302,6 +325,8 @@ const getCSVData = () => {
                   fontWeight: 400,
                   lineHeight: "normal",
                   backgroundColor: "white",
+                  height:"40px",
+               
                 }}
                 value={internalCategory}
                 onChange={handleCategoryChange}
@@ -345,7 +370,8 @@ const getCSVData = () => {
                     </div>
                     <div>
                     <DatePicker.RangePicker
-      style={{ width: '100%' }}
+      style={{ width: '100%',  height:"40px",
+      marginTop:"10px" }}
       onChange={handleDateChange}
       value={dateRange}
   
@@ -374,13 +400,15 @@ const getCSVData = () => {
             
 
                     <div>
-                    <div className='download-section'>
+
+                    <CSVLink data={getCSVData()}  filename={"report.csv"} className='download-section'>
                 <div className='download-report-div'>
                     {/* Use CSVLink to trigger download */}
-                    <CSVLink data={getCSVData()}  filename={"report.csv"}>Download report</CSVLink>
+                   Download report
                 </div>
                 <div className='download-img'><img src={download} alt="download-icon" style={{ width: "100%", height: "100%", objectFit: "contain" }} /></div>
-            </div>
+                </CSVLink>
+
                     </div>
                 </div>
 
@@ -390,7 +418,7 @@ const getCSVData = () => {
                         <div className='overview-section'>
                            
                             
-                            <div className='search-section' >
+                  
 
                             <div className='search-section'>
                             <img src={customSearchIcon} alt="Search" className="custom-search-icon" />
@@ -401,7 +429,7 @@ const getCSVData = () => {
                 />
                
             </div>
-                        </div>
+                    
                         <div className='overview-table'>
 
                         <div style={{ textAlign: 'center' }}>
@@ -420,7 +448,7 @@ const getCSVData = () => {
                         {rows.map((row, i) => (
                             <TableRow key={i} className='table-data-div' sx={{ '&:nth-of-type(even)': { backgroundColor: '#f2f2f2' } }}>
                                 {columns.map((column, j) => (
-                                    <TableCell key={j} sx={{ width: `${100 / columns.length}%` }}>
+                                    <TableCell key={j} sx={{ width: `${100 / columns.length}%` }} className='table-datas-div'>
                                         {row[column.id]}
                                     </TableCell>
                                 ))}
@@ -451,11 +479,15 @@ const getCSVData = () => {
                         <div className='datawisereport-section'>
                            
                             
-                        <div className='search-section' style={{backgroundColor:"#FFFFFF",padding:"10px"}}>
-
-                          <input type="search" value="" placeholder='seach for region' />
-
-                    </div>
+                           <div className='search-section'>
+                            <img src={customSearchIcon} alt="Search" className="custom-search-icon" />
+                <input
+                    type="text"
+                    placeholder="Search for region"
+                    className="searchbar"
+                />
+               
+            </div>
 
 
                     <div className='datawisereport-table-section'>
@@ -482,7 +514,7 @@ const getCSVData = () => {
                                         {columnsTwo && columnsTwo.map((column, j) => {
                                             let value = row[column.id];
                                             return (
-                                                <TableCell key={j} className='total-div' sx={{ width: `${100 / columns.length}%` }}>
+                                                <TableCell key={j} className='table-datas-div' sx={{ width: `${100 / columns.length}%` }}>
                                                     {value}
                                                 </TableCell>
                                             )
@@ -494,7 +526,7 @@ const getCSVData = () => {
                 </Table>
             </TableContainer>
            
-            <div style={{ display: 'flex', justifyContent: 'right', marginTop: '20px' }}>
+            <div style={{ display: 'flex', justifyContent: 'right', marginTop: '0px' }}>
             <div className="custom-pagination">
 <TablePagination
     rowsPerPageOptions={[5, 10, 25]}
@@ -504,7 +536,7 @@ const getCSVData = () => {
     page={page}
     onPageChange={handleChangePage}
     onRowsPerPageChange={handleChangeRowsPerPage}
-    labelRowsPerPage="Rows per page"
+    labelRowsPerPage="Rows per page:"
     labelDisplayedRows={() => ''}
     SelectProps={{
         inputProps: { 'aria-label': 'Rows per page' },
@@ -514,11 +546,41 @@ const getCSVData = () => {
 </div>
 
 
-
-
-              <button onClick={() => handleChangePage(null, page - 1)} disabled={page === 0}>{'<'}</button>
-                <span style={{ margin: '0 10px' }}>{`${page + 1}/${Math.ceil(rowstwo.length / rowsPerPage)}`}</span>
-                <button onClick={() => handleChangePage(null, page + 1)} disabled={page === Math.ceil(rowstwo.length / rowsPerPage) - 1}>{'>'}</button>
+<div style={{display:"flex",flexDirection:"row",gap:"5px",marginRight:"10px"}}>
+      <div
+        onClick={handlePrevButtonClick}
+        disabled={page === 0}
+        style={{
+          border: `1px solid ${prevButtonClicked ? '#F5F5F5' : '#868FA0'}`,
+          width: '30px',
+          height: '30px',
+          marginTop: '15px',
+          color: prevButtonClicked ? '#FF0000' : '#868FA0',
+          backgroundColor: prevButtonClicked ? '#F5F5F5' : '#FFFFFF',
+          borderRadius: '6px',
+        }}
+        className='button'
+      >
+        <img src={previcon} alt="Previous" />
+      </div>
+      <span style={{ margin: '15px 10px' }}>{`${page + 1}/${Math.ceil(rowstwo.length / rowsPerPage)}`}</span>
+      <div
+        onClick={handleNextButtonClick}
+        disabled={page === Math.ceil(rowstwo.length / rowsPerPage) - 1}
+        style={{
+          border: `1px solid ${nextButtonClicked ? '#F5F5F5' : '#868FA0'}`,
+          width: '30px',
+          height: '30px',
+          marginTop: '15px',
+          color: nextButtonClicked ? '#FF0000' : '#868FA0',
+          backgroundColor: nextButtonClicked ? '#F5F5F5' : '#FFFFFF',
+          borderRadius: '6px',
+        }}
+        className='button'
+      >
+        <img src={nexticon} alt="Next" />
+      </div>
+    </div>
             </div>
         </Paper>
     </div>
