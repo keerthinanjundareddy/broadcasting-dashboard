@@ -46,6 +46,8 @@ const handlePrevButtonClick = () => {
     handleChangePage(null, page + 1);
   };
 
+
+  const { RangePicker } = DatePicker;
   
     const handleDateChange = (dates) => {
       setDateRange(dates);
@@ -145,7 +147,7 @@ const totalValues = columns.reduce((total, column) => {
 
 // for region
 
-const regionNames = ["Select all", "East", "West", "North", "South", "Central"];
+const regionNames = ["Select All", "East", "West", "North", "South", "Central"];
 const zoneCategoryMapping = {
   East: "E1",
   West: "W1",
@@ -162,19 +164,27 @@ const centralcategoryNames = ["C1", "C2", "C3", "C4"];
 const [Date, setDate] = useState(["2023-12-11","2024-01-14"]);
   const [internalSelectedType, setInternalSelectedType] = useState("Select All");
   const [internalCategory, setInternalCategory] = useState("");
-  const [internalRegion, setInternalRegion] = useState("Select all");
+  const [internalRegion, setInternalRegion] = useState("Select All");
 
 
   const handleCategoryChange = (event) => {
     setInternalCategory(event.target.value);
   };
+ 
+
   const handleRegionChange = (event) => {
     const selectedRegion = event.target.value;
-    setInternalRegion(selectedRegion);
+    if (selectedRegion === "Select All") {
+      // If "Select All" is selected, set all regions to be selected
+      setInternalRegion(regionNames.slice(0));
+    } else {
+      // If any other region is selected, update the selected region
+      setInternalRegion(selectedRegion);
+    }
     // Set category based on selected region
     const category = zoneCategoryMapping[selectedRegion];
     setInternalCategory(category);
-};
+  };
 
   const getCategories = () => {
     switch (internalRegion) {
@@ -197,6 +207,7 @@ const [Date, setDate] = useState(["2023-12-11","2024-01-14"]);
 console.log("internalSelectedType",internalSelectedType)
 console.log("internalCategory",internalCategory)
 console.log("internalRegion",internalRegion)
+console.log("date",Date)
 
 // for downloading report
 const headersOverview = columns.map(column => column.name);
@@ -272,8 +283,8 @@ const getCSVData = () => {
               value={internalRegion}
               onChange={handleRegionChange}
               renderValue={(selected) => {
-                if (Array.isArray(selected)) {
-                  return selected.join();
+                if (selected.includes("Select All")) {
+                  return "Select All";
                 } else {
                   return selected;
                 }
@@ -283,15 +294,11 @@ const getCSVData = () => {
                 <MenuItem
                   key={regionOption}
                   value={regionOption}
-                  style={{ backgroundColor: "transparent" }}
-                  onClick={(e) => {
-                      const clickedRegion = e.target.innerText;
-                      handleRegionChange({ target: { value: clickedRegion } });
-                  }}
+                  
                 >
-                       <Checkbox
+                     <Checkbox
                     style={{ color: "rgba(104, 82, 144, 1)" }}
-                    checked={internalSelectedType.includes(regionOption)}
+                    checked={internalRegion.includes(regionOption)}
                   />
                   <ListItemText primary={regionOption} />
                 </MenuItem>
@@ -309,7 +316,7 @@ const getCSVData = () => {
 
 
 {/* region section */}
-
+{!Array.isArray(internalRegion) && internalRegion !== "Select All" && (
                   <div>
                     <div className='zone-div' style={{marginBottom:"10px"}}>
                        Region
@@ -361,7 +368,7 @@ const getCSVData = () => {
 
                    </div>
                   </div>
-
+)}
 
                   {/* date picker */}
                   <div>
@@ -369,7 +376,7 @@ const getCSVData = () => {
                        Date Range
                     </div>
                     <div>
-                    <DatePicker.RangePicker
+                    <RangePicker
       style={{ width: '100%',  height:"40px",
       marginTop:"10px" }}
       onChange={handleDateChange}
