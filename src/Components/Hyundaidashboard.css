@@ -47,9 +47,8 @@ body{
     align-content: center;
     position:fixed;
     top:0px;
-    border-bottom: 1px solid  grey;
     z-index: 100;
-   
+    border-bottom: 1px solid grey;
 
 }
 .hyundai-navbar-flexbox-container{
@@ -308,9 +307,3 @@ body{
     border-color:  #F5F5F5 !important;
 }
 
-@media screen and (max-width: 768px) {
-    .tabs-flexbox-container-two{
-        display:none;
-    }
-    
-}

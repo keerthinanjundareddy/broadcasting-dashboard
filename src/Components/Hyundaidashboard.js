@@ -15,7 +15,6 @@ import ListItemText from "@mui/material/ListItemText";
 import { CSVLink } from 'react-csv';
 import previcon from '../Assets/icon (2).png'
 import nexticon from '../Assets/icon (1).png'
-import Devicetab  from './Devicetab'
 
 
 
@@ -247,46 +246,6 @@ const handleSearch = () =>{
 
 }
 
-const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
-
-// Function to update screen width state
-const handleResize = () => {
-    setIsMobile(window.innerWidth <= 768);
-};
-
-useEffect(() => {
-    window.addEventListener('resize', handleResize);
-    return () => {
-        window.removeEventListener('resize', handleResize);
-    };
-}, []);
-
-const renderTabsDropdown = () => {
-  return (
-      <FormControl fullWidth>
-          <Select
-              value={activeTab}
-              onChange={(e) => setActiveTab(e.target.value)}
-              renderValue={(selected) => (
-                  <div>
-                     {selected}
-                  </div>
-              )}
-          >
-              {['tab1', 'tab2'].map((tab) => (
-                  <MenuItem key={tab} value={tab}>
-                      <Checkbox
-                          checked={activeTab === tab}
-                          onChange={() => setActiveTab(tab)}
-                      />
-                      <ListItemText primary={tab} />
-                  </MenuItem>
-              ))}
-          </Select>
-      </FormControl>
-  );
-};
-
     return (
         <>
             <div className='hyundai-dashboard-navbar-section'>
@@ -442,7 +401,7 @@ const renderTabsDropdown = () => {
     {/* tab section */}
     <div className='data-section'>
     <div className="tabs-flexbox-container">
-    {isMobile && renderTabsDropdown()}
+
                   
                     <div className='tabs-flexbox-container-two'>
                     <div className={activeTab === 'tab1' ? 'active-tab ' : 'inactive-tab'} onClick={() => handleTabChange('tab1')}>Overview</div>
@@ -469,11 +428,67 @@ const renderTabsDropdown = () => {
                 <div className="tab-content">
                     {activeTab === 'tab1' && (
                         // Content for Tab 1
-                       <>
-                       <Devicetab />
-                       </>
+                        <div className='overview-section'>
+                           
+                            
+                  
+
+                            <div className='search-section'>
+                            <img src={customSearchIcon} alt="Search" className="custom-search-icon" />
+                <input
+                    type="text"
+                    placeholder="Search for region"
+                    className="searchbar"
+                    onChange={handleSearch}
+                    value={searchValue}
+                />
+               
+            </div>
+                    
+                        <div className='overview-table'>
+
+                        <div style={{ textAlign: 'center' }}>
+        
+        <Paper sx={{ width: '100%', marginLeft: '0%', }}>
+            <TableContainer sx={{maxHeight: 10000}}>
+                <Table stickyHeader>
+                    <TableHead>
+                        <TableRow>
+                            {columns.map((column) => (
+                                <TableCell  className='table-columns-div' key={column.id} sx={{ width: `${100 / columns.length}%` }}>{column.name}</TableCell>
+                            ))}
+                        </TableRow>
+                    </TableHead>
+                    <TableBody>
+                        {rows.map((row, i) => (
+                            <TableRow key={i} className='table-data-div' sx={{ '&:nth-of-type(even)': { backgroundColor: '#f2f2f2' } }}>
+                                {columns.map((column, j) => (
+                                    <TableCell key={j} sx={{ width: `${100 / columns.length}%` }} className='table-datas-div'>
+                                        {row[column.id]}
+                                    </TableCell>
+                                ))}
+                            </TableRow>
+                        ))}
+                        {/* Display total values */}
+                        <TableRow>
+                            {columns.map((column, j) => (
+                                <TableCell key={j} className='total-div' sx={{ width: `${100 / columns.length}%` }}>
+                                    {totalValues[column.id]}
+                                </TableCell>
+                            ))}
+                        </TableRow>
+                    </TableBody>
+                </Table>
+            </TableContainer>
+        </Paper>
+    </div>
+
+
+                          </div>
+                       
+
+                        </div>
                     )}
-                    </div>
                     {activeTab === 'tab2' && (
                         // Content for Tab 2
                         <div className='datawisereport-section'>
@@ -591,7 +606,7 @@ const renderTabsDropdown = () => {
                     </div>
                     )}
                 </div>
-          
+                </div>
           
         </>
     );
